@@ -10,7 +10,7 @@ div.navbar-dropdown.dropdown-project-list
       li(tg-repeat="project in vm.projects track by project.get('id')")
         a(
             href="#"
-            tg-nav="project:project=project.get('slug')"
+            tg-nav="{{project.get('is_kanban_activated') ? 'project-kanban' : project.get('is_backlog_activated') ? 'project-backlog' : 'project'}}:project=project.get('slug')"
             ng-class="{'blocked-project': project.get('blocked_code')}"
         )
             span {{::project.get("name")}}

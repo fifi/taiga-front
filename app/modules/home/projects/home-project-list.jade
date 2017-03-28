@@ -7,12 +7,12 @@ section.home-project-list(ng-if="vm.projects.size")
     )
         .project-card-inner(
             href="#"
-            tg-nav="project:project=project.get('slug')"
+            tg-nav="{{project.get('is_kanban_activated') ? 'project-kanban' : project.get('is_backlog_activated') ? 'project-backlog' : 'project'}}:project=project.get('slug')"
         )
             .project-card-header
                 a.project-card-logo(
                     href="#"
-                    tg-nav="project:project=project.get('slug')"
+                    tg-nav="{{project.get('is_kanban_activated') ? 'project-kanban' : project.get('is_backlog_activated') ? 'project-backlog' : 'project'}}:project=project.get('slug')"
                     title="{{::project.get('name')}}"
                 )
                     img(
@@ -22,7 +22,7 @@ section.home-project-list(ng-if="vm.projects.size")
                 h3.project-card-name
                     a.project-title(
                         href="#"
-                        tg-nav="project:project=project.get('slug')"
+                        tg-nav="{{project.get('is_kanban_activated') ? 'project-kanban' : project.get('is_backlog_activated') ? 'project-backlog' : 'project'}}:project=project.get('slug')"
                         title="{{::project.get('name')}}"
                     ) {{::project.get('name')}}
 
